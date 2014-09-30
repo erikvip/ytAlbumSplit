@@ -134,7 +134,7 @@ class YtAlbum:
 
 			output = "TITLE \"%(artist)s - %(title)s\"\n" % album
 			output += "PERFORMER \"%(artist)s\"\n" % album
-			output += "FILE \"savant-protos.mp3\" MP3\n"
+			output += "FILE \"%s.mp3\" MP3\n" % video_id
 
 			time = 0
 			minutes = 0
@@ -150,7 +150,7 @@ class YtAlbum:
 						'minutes' : str(minutes).zfill(2), 
 						'seconds ': seconds,
 						'duration' : "%s:%s" % (str(minutes).zfill(2), seconds), 
-						'seconds' : time
+#						'seconds' : time
 					}
 
 					output += "  TRACK %(position)s AUDIO\n" % track
@@ -161,9 +161,9 @@ class YtAlbum:
 
 
 					# Convert recording time to Minutes:Seconds
-					time += int(t['length']) / 1000
-					minutes = time/60
-					seconds = str(time%60)[:2].zfill(2)
+#					time += int(t['length']) / 1000
+#					minutes = time/60
+#					seconds = str(time%60)[:2].zfill(2)
 					
 
 #					logging.info('Track #%(position)s \tDuration: %(duration)s [%(seconds)ss] \t%(title)s' % track)
